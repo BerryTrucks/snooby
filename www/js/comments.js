@@ -95,10 +95,10 @@ var _comments = {
     else if (op.data.likes === false)
       linkScoreClass = 'downvoted';
 
-    var headerTemplate = element.getElementById(selfPost ? 'selfPostHeaderTemplate' : 
+    var headerTemplate = element.getElementById(selfPost ? 'selfPostHeaderTemplate' :
                                                            'linkHeaderTemplate').innerHTML;
     var html = Mustache.to_html(headerTemplate,
-                                { title: selfPost ? op.data.title : 
+                                { title: selfPost ? op.data.title :
                                                     '<a href="' + op.data.url + '">' + op.data.title + '</a>',
                                   body: selfPost ? SnuOwnd.getParser().render(op.data.selftext) : null,
                                   domain: op.data.domain,
@@ -128,8 +128,8 @@ var _comments = {
       $('#loading').hide();
       console.log('getting comments from memory');
       $('#commentsContainer').html(_cache.getItem('comments.container'));
-      setTimeout(function() { 
-        thiz.scrollback(); 
+      setTimeout(function() {
+        thiz.scrollback();
       }, 0);
     } else {
       this._loadCommentsInChunks(element, params);
@@ -154,7 +154,7 @@ var _comments = {
                      } : null;
 
     console.log('getting comments from reddit');
-    app.comments(params.link.data.permalink, 
+    app.comments(params.link.data.permalink,
                  function(comment, op, chunkIndex) {
       bbr.formatComment(comment, op, function(bbComment) {
         if (chunkIndex !== currentChunkIndex) {
@@ -195,7 +195,7 @@ var _comments = {
 
       _cache.removeItem('comment.created');
       app.comment(comment.data.body, comment.data.parent_id, user.modhash, function() {});
-      setTimeout(function() { 
+      setTimeout(function() {
         $('#numComments').text(op.data.num_comments);
         document.getElementById('commentsScreen').scrollToElement(commentDiv.get(0));
         commentDiv.hide();
@@ -248,7 +248,7 @@ var _comments = {
 
     var scroller = element.children[1];
     if ((scroller.scrollTop + $(scroller).height()) >= ($(scroller.children[0]).height() + bb.screen.getActionBarHeight())) {
-      setTimeout(function() { 
+      setTimeout(function() {
         if ((scroller.scrollTop + $(scroller).height()) >= ($(scroller.children[0]).height() + bb.screen.getActionBarHeight())) {
           ptr.classList.add('pulling');
         }
@@ -410,7 +410,7 @@ var _comments = {
       thiz._postScoreOutdated = !scoreElement.visible();
     });
   },
-  
+
   downvoteComment: function(sourceId) {
     var user = JSON.parse(_cache.getPersistedItem('snooby.user'));
     var $scoreElement = $('#' + sourceId + ' .score').first();

@@ -3,7 +3,7 @@
   <head>
     <title>Snooby</title>
     <meta charset="UTF-8" />
-    <script type="text/javascript" src="local:///chrome/webworks.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/bbui-min.js"></script>
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/mustache.js"></script>
@@ -31,7 +31,7 @@
                                              yy: '%dy' } });
 
         function init() {
-          bb.init({ 
+          bb.init({
             ondomready: function(element, id, params) {
               if (id == 'subreddit')
                 _subreddits.onDomReady(element, params);
@@ -43,7 +43,7 @@
                 _comment.onDomReady(element, params);
               else if (id === 'mailbox')
                 _mailbox.onDomReady(element, params);
-            }, 
+            },
             onscreenready: function(element, id, params) {
               if (id === 'subreddit')
                 _subreddits.onScreenReady(element, params);
@@ -58,8 +58,8 @@
             }
           });
 
-          bb.pushScreen('subreddit.html', 
-                        'subreddit', 
+          bb.pushScreen('subreddit.html',
+                        'subreddit',
                         {subreddit: 'frontpage'});
         }
 
@@ -67,8 +67,8 @@
         if (version === null || version !== '1.0.4') {
           _cache.removePersistedItem('snooby.subreddits.actionBar');
           var gold = _cache.getPersistedItem('snooby.gold');
-          if (typeof gold === 'undefined')
-            _cache.persistItem('snooby.gold', 'false');
+          if (gold == null)
+            _cache.persistItem('snooby.gold', 'true');
         }
 
         if (version === null || version !== '1.0.6') {
@@ -76,7 +76,7 @@
           var persistedUser = _cache.getPersistedItem('snooby.user');
           if (typeof persistedUser !== 'undefined' && persistedUser !== null) {
             var user = JSON.parse(persistedUser);
-            _cache.persistItem('snooby.user', JSON.stringify({ username: user.username, 
+            _cache.persistItem('snooby.user', JSON.stringify({ username: user.username,
                                                                modhash: user.modhash }));
           }
         }
@@ -95,7 +95,7 @@
       });
 
       window.addEventListener('load', function(e) {
-        document.addEventListener('webworksready', ready);
+        document.addEventListener('deviceready', ready);
       }, false);
     </script>
   </head>

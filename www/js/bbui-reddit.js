@@ -18,17 +18,17 @@ var bbr = {
       }
     }
 
-    var hasThumbnail = link.data.thumbnail !== '' && 
-                       link.data.thumbnail !== 'nsfw' && 
+    var hasThumbnail = link.data.thumbnail !== '' &&
+                       link.data.thumbnail !== 'nsfw' &&
                        link.data.thumbnail !== 'self' &&
                        link.data.thumbnail !== 'default';
 
     var linkTitle = link.data.title;
 
-    if (link.data.over_18) 
+    if (link.data.over_18)
       linkTitle += ' <span class="label label-important nsfw">nsfw</span>';
 
-    var linkDescription = Mustache.to_html(hasThumbnail ? $('#titleWithThumbnail').html() : 
+    var linkDescription = Mustache.to_html(hasThumbnail ? $('#titleWithThumbnail').html() :
                                                           $('#titleWithoutThumbnail').html(),
                                            { title: linkTitle,
                                              numComments: link.data.num_comments,
@@ -41,7 +41,7 @@ var bbr = {
     else if (link.data.likes === false)
       scoreClass = 'downvoted';
 
-    var html = Mustache.to_html(linkTemplate, 
+    var html = Mustache.to_html(linkTemplate,
                                 { linkDescription: linkDescription,
                                   subreddit: link.data.subreddit,
                                   score: link.data.score,
@@ -88,7 +88,7 @@ var bbr = {
     var thiz = this,
         messageTemplate = $('#messageTemplate').html(),
         msg = message.data,
-        html = Mustache.to_html(messageTemplate, 
+        html = Mustache.to_html(messageTemplate,
                                 { time: moment.unix(msg.created_utc).fromNow(),
                                   subject: msg.subject,
                                   subreddit: msg.subreddit,
@@ -166,7 +166,7 @@ var bbr = {
       $author.addClass('me');
     } else if (comment.data.author == op.data.author) {
       $author.addClass('op');
-    }  
+    }
 
     if (comment.data.likes) {
       $score.addClass('upvoted');
@@ -249,7 +249,7 @@ var bbr = {
 
   _handleLink: function(a) {
     var redditMatch = /^([\w]*\.)*reddit\.com/;
-    if (a.hostname.match(redditMatch)) 
+    if (a.hostname.match(redditMatch))
       return this._handleRedditLink(a);
 
     window.open(a.href);
@@ -273,7 +273,7 @@ var bbr = {
   _handleSubredditLink: function(a) {
     var pathname = a.pathname;
     var suffix = '/';
-    var length = pathname.indexOf(suffix, pathname.length - suffix.length) !== -1 ? pathname.length - 1 : 
+    var length = pathname.indexOf(suffix, pathname.length - suffix.length) !== -1 ? pathname.length - 1 :
                                                                                     pathname.length;
     this.pushSubredditScreen(pathname.substring(3, length));
   },

@@ -39,11 +39,11 @@
     <div id="ptrarrow">&#x21ea;</div><span id="ptrtext"></span>
   </div>
   <div id="actionBar" data-bb-type="action-bar">
-    <div data-bb-type="action" 
-         onclick="_subreddits.refresh()" 
+    <div data-bb-type="action"
+         onclick="_subreddits.refresh()"
          data-bb-style="button" data-bb-img="img/icons/ic_rotate.png">Refresh</div>
-    <div id="mailbox" data-bb-type="action" 
-         onclick="_subreddits.pushMailbox()" 
+    <div id="mailbox" data-bb-type="action"
+         onclick="_subreddits.pushMailbox()"
          data-bb-style="button" data-bb-img="img/icons/ic_email.png">Mail</div>
    <div data-bb-type="action"
         onclick="_subreddits.promptSubreddit()"
@@ -55,11 +55,6 @@
         data-bb-style="button"
         data-bb-overflow="true"
         data-bb-img="img/icons/ic_settings.png">Settings</div>
-   <div data-bb-type="action"
-        onclick="bb.pushScreen('support.html', 'support');"
-        data-bb-style="button"
-        data-bb-overflow="true"
-        data-bb-img="img/icons/ic_star.png">Snooby Gold</div>
    <div data-bb-type="action"
         onclick="bbr.pushSubredditScreen('snoobyapp')"
         data-bb-style="button"
@@ -77,15 +72,15 @@
        <div class="row-fluid">
          {{&linkDescription}}
        </div>
-     </div>  
+     </div>
    </div>
    <div class="details-section">
      <div class="container-fluid">
        <div class="row-fluid">
          <div class="span10 meta">
-           <span class="subreddit">{{subreddit}}</span> • 
-           <span class="score {{scoreClass}}" id="score-{{name}}">{{score}}</span> • 
-           {{domain}} • 
+           <span class="subreddit">{{subreddit}}</span> •
+           <span class="score {{scoreClass}}" id="score-{{name}}">{{score}}</span> •
+           {{domain}} •
            {{author}}
            {{#authorFlair}}
              • {{authorFlair}}
@@ -93,7 +88,7 @@
          </div>
          <div class="span2 time">{{time}}</div>
        </div>
-     </div>  
+     </div>
    </div>
  </script>
  <script id="titleWithThumbnail" type="text/template">

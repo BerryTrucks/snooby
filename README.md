@@ -5,12 +5,15 @@ Introducing [Snooby](http://appworld.blackberry.com/webstore/content/23060906/),
 stages of a Blackberry 10 Reddit client. Currently, Snooby is allows you to vote, comment and
 check your mail.
 
-##Philosphy
+## Development
+This version of Snooby has been ported to WebWorks 2.
+
+## Philosphy
 The philosphy of Snooby is to release early and often. New versions of Snooby will be submitted 
 to the BlackBerry App World frequently with hopes of receiving feedback and letting its users
 guide its development.
 
-##Progress and Known Issues
+## Progress and Known Issues
 Snooby is [open-source](http://github.com/achan/snooby) and its 
 [issue tracking is also public](https://github.com/achan/snooby/issues?state=open). Development 
 mainly happens on the [dev branch](https://github.com/achan/snooby/tree/dev) and 

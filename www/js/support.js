@@ -12,7 +12,7 @@ var _support = {
   purchaseSnoobyGold: function() {
     blackberry.payment.purchase({ digitalGoodSKU: 'SNBY-002',
                                   purchaseAppName: 'Snooby',
-                                  metaData: 'v1.0.2 - Settings screen' }, 
+                                  metaData: 'v1.0.2 - Settings screen' },
                                  this.onSnoobyGoldPurchase,
                                  this.onSnoobyGoldPurchaseFailed);
   },
